@@ -12,6 +12,7 @@ export class FormDocumentComponent {
     customName:string;
     documentFile:File;
     document:Document;
+    id:number;
 
     constructor(private documentsService: DocumentsService, 
                 private router: Router,
@@ -19,9 +20,9 @@ export class FormDocumentComponent {
     ){}
     
     ngOnInit(){
-        let id:number = this.route.snapshot.params['id'];
-        if(id) {
-            this.documentsService.getDocument(id)
+        this.id = this.route.snapshot.params['id'];
+        if(this.id) {
+            this.documentsService.getDocument(this.id)
                 .subscribe((document:Document) => {
                     this.document = document;
                     this.customName = document.customName;
