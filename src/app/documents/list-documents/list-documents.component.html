@@ -24,19 +24,22 @@
                     </th>
                 </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-                <tr class="odd:bg-white even:bg-gray-50">
+            <tbody *ngIf="documents else emptyDocuments" class="bg-white divide-y divide-gray-200">
+                <tr 
+                    *ngFor="let document of documents"
+                    class="odd:bg-white even:bg-gray-50"
+                >
+                    <td class="text-left px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {{ document.customName }}
+                    </td>
+                    <td class="text-left hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {{ document.originalName }}
+                    </td>
                     <td class="text-center px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {{ customName }}
+                        {{ document.extension }}
                     </td>
                     <td class="text-center hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {{ originalName }}
-                    </td>
-                    <td class="text-center px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {{ extension }}
-                    </td>
-                    <td class="text-center hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {{ mimeType }}
+                        {{ document.mimeType }}
                     </td>
                     <td class="text-center px-6 py-4 whitespace-nowrap text-sm font-medium flex justify-center gap-2">
                         <a href="#" class="text-indigo-500 hover:text-indigo-800">
@@ -47,12 +50,14 @@
                         </a>
                     </td>
                 </tr>
-            </tbody>                                            
-            <tbody class="bg-white divide-y divide-gray-200">
-                <tr>
-                    <td class="px-6 py-4 w-full text-base text-gray-500 text-center" colspan="8">No tienes transacciones</td>
-                </tr>
             </tbody>
+            <ng-template #emptyDocuments>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                        <td class="px-6 py-4 w-full text-base text-gray-500 text-center" colspan="8">No existen documentos</td>
+                    </tr>
+                </tbody>
+            </ng-template>                                            
         </table>   
     </div>
 </div>
