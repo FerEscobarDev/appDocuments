@@ -9,4 +9,8 @@ export class DataDocumentsService{
     getDocumentsList(){
         return this.httpClient.get<Document[]>('https://localhost:44361/api/v1/document');
     }
+
+    getDocumentById(id:number){
+        return this.httpClient.get<Document>(`https://localhost:44361/api/v1/document/${id}`);
+    }
 }

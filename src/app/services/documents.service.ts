@@ -8,4 +8,8 @@ export class DocumentsService{
     getDocuments(){
         return this.dataDocumentsService.getDocumentsList();
     }
+
+    getDocument(id:number){
+        return this.dataDocumentsService.getDocumentById(id);
+    }
 }
