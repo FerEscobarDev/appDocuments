@@ -9,6 +9,7 @@ Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-
 1. Clona este repositorio: [https://github.com/FerEscobarDev/appDocuments.git](https://github.com/FerEscobarDev/appDocuments.git)
 2. Cambia al directorio del proyecto: `cd appDocuments`
 3. Instala las dependencias: `npm install`
+4. Verifica que la url de la api es la correcta en `services/dataDocuments.service.ts`
 
 
 ## Desarrollo local

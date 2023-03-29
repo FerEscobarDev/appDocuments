@@ -5,14 +5,17 @@ import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class DataDocumentsService{
+
+    url:string = 'https://localhost:44361/api/v1/document';
+
     constructor(private httpClient: HttpClient){}
 
     getDocumentsList(queryParams: any = {}){
-        return this.httpClient.get<Document[]>('https://localhost:44361/api/v1/document', { params: queryParams });
+        return this.httpClient.get<Document[]>(this.url, { params: queryParams });
     }
 
     getDocumentById(id:number){
-        return this.httpClient.get<Document>(`https://localhost:44361/api/v1/document/${id}`);
+        return this.httpClient.get<Document>(this.url + id);
     }
 
     updateDocument(id: number, customName: string, documentFile: File){
@@ -26,11 +29,11 @@ export class DataDocumentsService{
             })
         }
 
-        return this.httpClient.put(`https://localhost:44361/api/v1/document/${id}`, formData, httpOptions);
+        return this.httpClient.put(this.url + id, formData, httpOptions);
     };
 
     deleteDocument(id: number){
-        return this.httpClient.delete(`https://localhost:44361/api/v1/document/${id}`);
+        return this.httpClient.delete(this.url + id);
     }
 
     storeDocument(customName: string, documentFile: File){
@@ -44,6 +47,6 @@ export class DataDocumentsService{
             })
         }
 
-        return this.httpClient.post('https://localhost:44361/api/v1/document', formData, httpOptions);
+        return this.httpClient.post(this.url, formData, httpOptions);
     }
 }
