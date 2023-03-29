@@ -6,8 +6,8 @@ import { Document } from 'src/app/models/document.model';
 export class DocumentsService{
     constructor(private dataDocumentsService: DataDocumentsService){}
 
-    getDocuments(){
-        return this.dataDocumentsService.getDocumentsList();
+    getDocuments(queryParams: any = {}){
+        return this.dataDocumentsService.getDocumentsList(queryParams);
     }
 
     getDocument<Document>(id:number){
@@ -20,5 +20,9 @@ export class DocumentsService{
 
     deleteDocument(id: number){
         return this.dataDocumentsService.deleteDocument(id);
+    }
+
+    storeDocument(customName: string, documentFile: File){
+        return this.dataDocumentsService.storeDocument(customName, documentFile);
     }
 }

@@ -1,7 +1,18 @@
-<div class="flex flex-col justify-center">
-    <div>
-        <h1>List Of Documents</h1>
-        <a [routerLink]="'/document/create/'">Add</a>
+<div class="flex flex-col justify-center gap-2">
+    <div class="w-full flex flex-col justify-center items-center">
+        <div class="w-full flex justify-center items-center mb-5">
+            <h1 class="w-full text-2xl">List Of Documents</h1>
+            <a [routerLink]="'/document/create/'" class="p-1 rounded-md border border-blue-700 bg-blue-500 text-white font-semibold w-24 text-center">Add</a>
+        </div>
+        <div class="w-full flex justify-center items-center">
+            <form (submit)="filterDocuments()" class="flex justify-center items-center gap-2 w-full">
+                <input class="border rounded-md p-1" type="text" placeholder="Custom Name" [(ngModel)]="filterCustomName" name="filterCustomName">
+                <input class="border rounded-md p-1" type="text" placeholder="Original Name" [(ngModel)]="filterOriginalName" name="filterOriginalName">
+                <input class="border rounded-md p-1" type="text" placeholder="Extension" [(ngModel)]="filterExtension" name="filterExtension">
+                <input class="border rounded-md p-1" type="text" placeholder="Mime Type" [(ngModel)]="filterMimeType" name="filterMimeType">
+                <button class="p-1 rounded-md border border-green-300 bg-green-500 text-white font-semibold w-24 text-center" type="submit">Filtrar</button>
+            </form>
+        </div>
     </div>
     <div class="min-w-full overflow-auto border border-gray-200 rounded-lg">
         <table class="min-w-full divide-y divide-gray-200">

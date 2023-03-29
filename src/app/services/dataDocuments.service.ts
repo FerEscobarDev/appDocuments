@@ -7,8 +7,8 @@ import { HttpHeaders } from '@angular/common/http';
 export class DataDocumentsService{
     constructor(private httpClient: HttpClient){}
 
-    getDocumentsList(){
-        return this.httpClient.get<Document[]>('https://localhost:44361/api/v1/document');
+    getDocumentsList(queryParams: any = {}){
+        return this.httpClient.get<Document[]>('https://localhost:44361/api/v1/document', { params: queryParams });
     }
 
     getDocumentById(id:number){
@@ -31,5 +31,19 @@ export class DataDocumentsService{
 
     deleteDocument(id: number){
         return this.httpClient.delete(`https://localhost:44361/api/v1/document/${id}`);
+    }
+
+    storeDocument(customName: string, documentFile: File){
+        const formData = new FormData();
+        formData.append('customName', customName);
+        formData.append('documentFile', documentFile);
+        
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Accept': 'application/json'
+            })
+        }
+
+        return this.httpClient.post('https://localhost:44361/api/v1/document', formData, httpOptions);
     }
 }

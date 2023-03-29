@@ -30,9 +30,15 @@ export class FormDocumentComponent {
         }
     }
 
-    updateDocument(){
-        console.log(this.documentFile)
-        this.documentsService.updateDocument(this.document.id, this.customName, this.documentFile)
+    saveDocument(){
+        if(this.id){
+            this.documentsService.updateDocument(this.id, this.customName, this.documentFile)
+                .subscribe(() => {
+                    this.router.navigate(['documents']);
+                });
+        }
+
+        this.documentsService.storeDocument(this.customName, this.documentFile)
             .subscribe(() => {
                 this.router.navigate(['documents']);
             });

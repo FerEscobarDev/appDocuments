@@ -14,6 +14,11 @@ export class ListDocumentsComponent {
     extension: string = 'png';
     mimeType: string = 'image';
 
+    filterCustomName: string = '';
+    filterOriginalName: string = '';
+    filterExtension: string = '';
+    filterMimeType: string = '';
+
     documents: Document[] = [];
 
     constructor(private documentsService: DocumentsService, private router: Router){}
@@ -34,4 +39,27 @@ export class ListDocumentsComponent {
                     });
             });
     }
+
+    filterDocuments() {
+        const queryParams: any = {};
+    
+        if (this.filterCustomName) {
+            queryParams.customName = this.filterCustomName;
+        }
+        if (this.filterOriginalName) {
+            queryParams.originalName = this.filterOriginalName;
+        }
+        if (this.filterExtension) {
+            queryParams.extension = this.filterExtension;
+        }
+        if (this.filterMimeType) {
+            queryParams.mimeType = this.filterMimeType;
+        }
+    
+        this.documentsService.getDocuments(queryParams)
+        .subscribe((documents: Document[]) => {
+            this.documents = documents;
+        });
+    }
+
 }
