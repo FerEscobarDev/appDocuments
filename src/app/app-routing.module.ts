@@ -7,7 +7,7 @@ const routes: Routes = [
     { path: '', component: ListDocumentsComponent },
     { path: 'documents', component: ListDocumentsComponent },
     { path: 'document/create', component: FormDocumentComponent },
-    { path: 'document/edit', component: FormDocumentComponent }
+    { path: 'document/edit/:id', component: FormDocumentComponent }
 ];
 
 @NgModule({
