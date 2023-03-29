@@ -17,4 +17,8 @@ export class DocumentsService{
     updateDocument(id: number, customName: string, documentFile: File){
         return this.dataDocumentsService.updateDocument(id, customName, documentFile);
     }
+
+    deleteDocument(id: number){
+        return this.dataDocumentsService.deleteDocument(id);
+    }
 }

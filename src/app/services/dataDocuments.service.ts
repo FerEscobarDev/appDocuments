@@ -28,4 +28,8 @@ export class DataDocumentsService{
 
         return this.httpClient.put(`https://localhost:44361/api/v1/document/${id}`, formData, httpOptions);
     };
+
+    deleteDocument(id: number){
+        return this.httpClient.delete(`https://localhost:44361/api/v1/document/${id}`);
+    }
 }
