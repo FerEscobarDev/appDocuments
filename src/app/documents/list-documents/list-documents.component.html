@@ -1,0 +1,59 @@
+<div class="flex flex-col justify-center">
+    <div>
+        <h1>List Of Documents</h1>
+        <a href="#">Add</a>
+    </div>
+    <div class="min-w-full overflow-auto border border-gray-200 rounded-lg">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th scope="col" class="hidden md:table-cell px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Custom Name
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Original Name 
+                    </th>
+                    <th scope="col" class="hidden md:table-cell px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Extencion
+                    </th>
+                    <th scope="col" class="hidden md:table-cell px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Mime Type
+                    </th>                                                  
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                <tr class="odd:bg-white even:bg-gray-50">
+                    <td class="text-center px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {{ customName }}
+                    </td>
+                    <td class="text-center hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {{ originalName }}
+                    </td>
+                    <td class="text-center px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {{ extension }}
+                    </td>
+                    <td class="text-center hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {{ mimeType }}
+                    </td>
+                    <td class="text-center px-6 py-4 whitespace-nowrap text-sm font-medium flex justify-center gap-2">
+                        <a href="#" class="text-indigo-500 hover:text-indigo-800">
+                            Edit
+                        </a>
+                        <a href="#" class="text-red-500 hover:text-red-800">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            </tbody>                                            
+            <tbody class="bg-white divide-y divide-gray-200">
+                <tr>
+                    <td class="px-6 py-4 w-full text-base text-gray-500 text-center" colspan="8">No tienes transacciones</td>
+                </tr>
+            </tbody>
+        </table>   
+    </div>
+</div>
+
