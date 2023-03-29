@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListDocumentsComponent } from './documents/list-documents/list-documents.component';
 import { FormDocumentComponent } from './documents/form-document/form-document.component';
+import { DataDocumentsService } from './services/dataDocuments.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +16,7 @@ import { FormDocumentComponent } from './documents/form-document/form-document.c
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [DataDocumentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
