@@ -1,1 +1,7 @@
-<p>form-document works!</p>
+<div class="w-full">
+    <form #f="ngForm" (ngSubmit)="f.form.valid && updateDocument()" class="flex flex-col justify-center items-center gap-4 w-full">
+        <input class="p-1 border rounded-md w-full" type="text" name="customName" id="customName" [(ngModel)]="customName" required>
+        <input class="p-1 border rounded-md" type="file" name="documentFile" id="documentFile" (change)="onFileChange($event)"> 
+        <button class="p-1 rounded-md border border-blue-700 bg-blue-500 text-white font-semibold w-24" type="submit">Update</button>   
+    </form>
+</div>

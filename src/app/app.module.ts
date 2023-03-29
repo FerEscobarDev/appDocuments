@@ -8,6 +8,7 @@ import { FormDocumentComponent } from './documents/form-document/form-document.c
 import { DataDocumentsService } from './services/dataDocuments.service';
 import { DocumentsService } from './services/documents.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [DataDocumentsService, DocumentsService],
   bootstrap: [AppComponent]
